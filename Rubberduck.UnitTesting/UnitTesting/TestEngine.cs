@@ -216,6 +216,11 @@ namespace Rubberduck.UnitTesting
                 }
             }).GetAwaiter().GetResult(); // Ensure the task completes before returning results.
 
+            if (!results.Any())
+            {
+                return "🟡 No tests were run";
+            }
+
             // Format the results into a string
             var resultBuilder = new StringLineBuilder();
             foreach (var result in results)
